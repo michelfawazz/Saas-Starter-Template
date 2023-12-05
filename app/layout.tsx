@@ -5,6 +5,9 @@ import './globals.css'
 
 import NavBar from '@/components/NavBar'
 import { ClerkProvider } from '@clerk/nextjs'
+import { SiteFooter } from '@/components/site-footer'
+import { ProModal } from '@/components/pro-modal'
+import { Toaster } from '@/components/ui/toaster'
 
 
 
@@ -24,16 +27,22 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body className={inter.className}>
+
           <div className='bg-[#0f1014] flex flex-col min-h-screen mx-auto 2xl:max-w-screen-xl'>
+            <ProModal />
 
-
+            <NavBar />
 
             {children}
 
 
 
+            <SiteFooter />
+
+            <Toaster />
 
           </div>
+
 
 
 

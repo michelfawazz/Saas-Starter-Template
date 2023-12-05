@@ -2,6 +2,13 @@
 
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import {
+
+    SignedIn,
+    SignedOut,
+    UserButton,
+} from "@clerk/nextjs";
+
 import Link from 'next/link';
 
 const NavBar = () => {
@@ -19,11 +26,18 @@ const NavBar = () => {
 
 
                 </div>
-                <Link href={"/dashboard"}>
-                    <Button variant="secondary">
-                        Test It Out
-                    </Button>
-                </Link>
+
+                <SignedOut>
+                    <Link href={"/dashboard"}>
+                        <Button variant="secondary">
+                            Test It Out
+                        </Button>
+                    </Link>
+                </SignedOut>
+                <SignedIn>
+
+                    <UserButton afterSignOutUrl='/' />
+                </SignedIn>
 
             </div>
         </div >
